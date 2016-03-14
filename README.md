@@ -7,6 +7,7 @@ curl 'master bash script location' | bash
 ```
 
 ##Generated files
+```
 .
 ├──src
 |  ├──app.js
@@ -20,7 +21,7 @@ curl 'master bash script location' | bash
 |     ├──reset.less
 |     ├──typography.less
 |     ├──variables.less
-
+```
 
 ## Run dev server
 ```bash
