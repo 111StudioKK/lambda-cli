@@ -5,7 +5,7 @@ A React Web boilerplate / scaffolding tool used at 111Studio
 # Install / Use / Update
 ## Include in your existing git project
 ```bash
-curl 'master bash script location' | bash
+curl https://raw.githubusercontent.com/111StudioKK/reactor-web/master/install.sh | bash
 ```
 
 ##Generated files
@@ -60,7 +60,7 @@ Creates the component's js file (ES6 declaration) + the less file (with the conf
 ```bash
 ./build
 ```
-The built app can be found in the dist directory. 
+The built app can be found in the dist directory.
 
 ## Update the boilerplate
 ```

@@ -1,0 +1,25 @@
+{
+  "name": "reactor-web",
+  "version": "1.0.0",
+  "description": "A React Web boilerplate / scaffolding tool used at 111Studio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/111StudioKK/reactor-web.git"
+  },
+  "keywords": [
+    "react",
+    "es6",
+    "webpack",
+    "boilerplate"
+  ],
+  "author": "Florian Didron <florian@111studio.jp> (http://www.111studio.jp/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/111StudioKK/reactor-web/issues"
+  },
+  "homepage": "https://github.com/111StudioKK/reactor-web#readme"
+}

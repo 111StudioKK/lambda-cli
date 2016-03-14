@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "quotes": [2,"single"],
+    "indent": [2, 2],
+    "linebreak-style": [2,"unix"],
+    "semi": [2,"always"],
+    "no-console" : 1,
+    "react/jsx-uses-react": 1
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "jsx": true,
+    "experimentalObjectRestSpread": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "__DEV__": false,
+    "describe": false,
+    "it": false
+  }
+}
