@@ -33,3 +33,8 @@ curl 'master bash script location' | bash
 ./build
 ```
 The built app can be found in the dist directory. 
+
+## Update the boilerplate
+```
+git submodule foreach git pull origin master
+```
