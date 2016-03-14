@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 'use strict'
 
-const vorpal = require('vorpal')();
+const Vorpal = require('vorpal')();
+const Chalk = Vorpal.chalk;
 const tpl = require('./tpl');
 const Case = require('case');
 const Path = require('path');
 const fsPath = require('fs-path');
+const sys = require('sys')
+const exec = require('child_process').exec;
+
+let procs = [];
 
 const componentsBaseDirectory = './src/components/';
 
@@ -57,7 +62,7 @@ function getExistingComponents() {
   return files;
 }
 
-vorpal
+Vorpal
   .command('component', 'Scaffolds a component (Creates JS / Less / Spec file)')
   .action( function(args, cb) {
     this.prompt([
@@ -98,21 +103,27 @@ vorpal
     });
 
   });
+Vorpal
+  .command('test', 'Builds the application (Outputs in the dist directory)')
+  .action(function(args, callback) {
+    require("child_process").exec('npm run test').unref();
+  });
 
-vorpal
+Vorpal
   .command('serve [host]', 'Serves the application (Defaults to http://localhost:8080)')
   .action(function(args, callback) {
     this.log('bar');
     callback();
   });
 
-vorpal
+Vorpal
   .command('build', 'Builds the application (Outputs in the dist directory)')
   .action(function(args, callback) {
     this.log('There\'s a big todo Here');
-    callback();
   });
 
-vorpal
-  .delimiter('λ::')
+Vorpal
+  .delimiter(Chalk.bold.yellow('λ::'))
+  .parse(process.argv)
+  .history('reactor')
   .show();
