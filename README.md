@@ -140,3 +140,16 @@ Styling components should follow these directives :
 7. Improve the cli interface (better help / more granular execution of commands with args).
 8. Build the doc generator.
 9. Build a component telemetry page.
+
+```
+░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░███░░░░░░░░░░░░░░
+░░░░░░░░░░██░░░░░░░░░░░░░
+░░░░░░░░░░░██░░░░░░░░░░░░
+░░░░░░░░░░████░░░░░░░░░░░
+░░░░░░░░░██░░██░░░░░░░░░░
+░░░░░░░░██░░░░██░░░░░░░░░
+░░░░░░░██░░░░░░██░░░░░░░░
+░░░░░░██░░░░░░░░███░0.3.3
+░░░░░░░░░░░░░░░░░░░░░░░░░
+```
