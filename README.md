@@ -1,14 +1,51 @@
 # λ Lambda
 A React Web boilerplate / scaffolding tool used at 111Studio
 
+## Install
 
-# Install / Use / Update
-## Include in your existing git project
+This will include the lambda command in your PATH.
+
 ```bash
 npm i -g lambda
 ```
 
-##Example project scaffold
+##Available commands
+
+### lambda component
+
+Scaffolds a React Component: Creates the component's jsx / less / spec files.
+
+```bash
+lambda component
+
+--or--
+
+lambda
+then type component in the cli.
+```
+
+### lambda serve
+
+Runs a webpack dev server including the following features:
+
+1. Hot module reloading
+2. Flow type annotations.
+3. ES6 / ES7 transpilation.
+4. Less compilation.
+5. Image file imports.
+6. Font imports.
+7. TODO : Crash on Flow type errors.
+8. TODO : Auto import npm packages if not found in the project.
+9. TODO : Global file import resolves.
+
+```bash
+lambda serve
+```
+
+##Project structure / guidelines
+
+### Project directory tree
+
 ```
 src
 ├── fonts
@@ -73,32 +110,13 @@ src
     └── variables.less
 ```
 
-##Scaffold component
-Creates the component's jsx / less / spec files
-```bash
-lambda component
-
---or--
-
-lambda
-then type component in the cli.
-```
-
-## Run dev server
-```bash
-lambda serve
-```
-
-#Workflow
-
-##Less
+### Less guidelines
 Styling components should follow these directives :
 
 1. All components should have their own less file.
-
 2. The wrapping dom element of each component should have a className equal to the component's name in kebab-case (All lowercase with - separating words.) ex: MyComponent => my-component
-
 3. The less styles definitions for the component should be wrapped inside the component's className :
+
 ```less
 .my-component {
   .some-class {
@@ -106,13 +124,19 @@ Styling components should follow these directives :
   }
 }
 ```
-#TODO
+
+### Redux guidelines
+
+>TODO
+
+##TODO
 
 1. ~~Scaffold initial project.~~
 2. ~~Scaffold Components.~~
 3. ~~Serve the application for development.~~
-4. Build the application for production.
-5. Run the test suite.
-6. Improve the cli interface (better help / more granular execution of commands with args).
-7. Build the doc generator.
-8. Build a component telemetry page.
+4. Bootstrap the inital redux setup. 
+5. Build the application for production.
+6. Run the test suite.
+7. Improve the cli interface (better help / more granular execution of commands with args).
+8. Build the doc generator.
+9. Build a component telemetry page.
