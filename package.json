@@ -1,6 +1,6 @@
 {
   "name": "lambda-cli",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A React Web boilerplate / scaffolding tool used at 111Studio",
   "main": "index.js",
   "bin": {
@@ -46,7 +46,7 @@
     "jsdom": "8.1.0",
     "less": "2.6.1",
     "less-loader": "2.2.2",
-    "ls": "git+ssh://git@github.com/111StudioKK/ls.git",
+    "ls": "git+https://github.com/111StudioKK/ls.git",
     "minimist": "1.2.0",
     "mocha": "2.4.5",
     "mustache": "2.2.1",
