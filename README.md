@@ -1,70 +1,92 @@
-# reactor-web
+# λ Lambda
 A React Web boilerplate / scaffolding tool used at 111Studio
 
 
 # Install / Use / Update
 ## Include in your existing git project
 ```bash
-curl https://raw.githubusercontent.com/111StudioKK/reactor-web/master/install.sh | bash
+npm i -g lambda
 ```
 
-##Generated files
+##Example project scaffold
 ```
-.
-├──src
-|  ├──app.js
-|  ├──index.tpl.html
-|  ├──components
-|  ├──containers
-|  ├──images
-|  ├──fonts
-|  ├──styles
-|     ├──config.less
-|     ├──reset.less
-|     ├──typography.less
-|     ├──variables.less
+src
+├── fonts
+├── images
+├── js
+│   ├── app
+│   │   ├── App
+│   │   │   ├── App.jsx
+│   │   │   ├── App.less
+│   │   │   └── App.spec.js
+│   │   ├── Footer
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Footer.less
+│   │   │   └── Footer.spec.js
+│   │   ├── Header
+│   │   │   ├── Header.jsx
+│   │   │   ├── Header.less
+│   │   │   └── Header.spec.js
+│   │   └── SideBar
+│   │       ├── SideBar.jsx
+│   │       ├── SideBar.less
+│   │       └── SideBar.spec.js
+│   ├── article
+│   │   ├── Article
+│   │   │   ├── Article.jsx
+│   │   │   ├── Article.less
+│   │   │   └── Article.spec.js
+│   │   └── ArticleList
+│   │       ├── ArticleList.jsx
+│   │       ├── ArticleList.less
+│   │       └── ArticleList.spec.js
+│   ├── comment
+│   │   ├── Comment
+│   │   │   ├── Comment.jsx
+│   │   │   ├── Comment.less
+│   │   │   └── Comment.spec.js
+│   │   └── CommentList
+│   │       ├── CommentList.jsx
+│   │       ├── CommentList.less
+│   │       └── CommentList.spec.js
+│   ├── index.js
+│   ├── redux
+│   │   ├── action.js
+│   │   ├── article.js
+│   │   ├── comment.js
+│   │   └── store.js
+│   ├── routes
+│   │   └── Routes.jsx
+│   └── views
+│       ├── ArticleListView
+│       │   ├── ArticleListView.jsx
+│       │   ├── ArticleListView.less
+│       │   └── ArticleListView.spec.js
+│       └── ArticleView
+│           ├── ArticleView.jsx
+│           ├── ArticleView.less
+│           └── ArticleView.spec.js
+└── styles
+    ├── config.less
+    ├── layout.less
+    ├── typography.less
+    └── variables.less
 ```
 
-##Create component
-Creates the component's js file (ES6 declaration) + the less file (with the config import)
+##Scaffold component
+Creates the component's jsx / less / spec files
 ```bash
-./create component MyComponent
-# Results in
-├──src
-|  ├──components
-|     ├──MyComponent.js(X)
-...
-|  ├──styles
-|     ├──MyComponent.less
+lambda component
+
+--or--
+
+lambda
+then type component in the cli.
 ```
 
-##Create container
-Creates the component's js file (ES6 declaration) + the less file (with the config import). During creation you may choose which components to require.
-```bash
-./create container MyContainer
-# Results in
-
-├──src
-|  ├──components
-|     ├──MyContainer.js(X)
-...
-|  ├──styles
-|     ├──MyContainer.less
-```
 ## Run dev server
 ```bash
-./dev
-```
-
-## Build app
-```bash
-./build
-```
-The built app can be found in the dist directory.
-
-## Update the boilerplate
-```
-git submodule foreach git pull origin master
+lambda serve
 ```
 
 #Workflow
@@ -84,3 +106,13 @@ Styling components should follow these directives :
   }
 }
 ```
+#TODO
+
+1. ~~Scaffold initial project.~~
+2. ~~Scaffold Components.~~
+3. ~~Serve the application for development.~~
+4. Build the application for production.
+5. Run the test suite.
+6. Improve the cli interface (better help / more granular execution of commands with args).
+7. Build the doc generator.
+8. Build a component telemetry page.
