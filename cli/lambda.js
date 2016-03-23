@@ -9,6 +9,7 @@ const Run = require('./run');
 const InitFiles = require('./initFiles');
 const Scaffold = require('./scaffold');
 const LAMBDA_HOME = Path.resolve(__dirname + '/..') + '/';
+const LAMBDA_PKG = require(LAMBDA_HOME + 'package.json');
 
 let conf = {};
 let Helpers;
@@ -44,6 +45,29 @@ function loadConf() {
     }
   }
 }
+
+Vorpal.help( function(cmd) {
+  let help = (cmd) ? `${Chalk.red(cmd)} is an invalid command.` : '';
+
+  help += `
+${Chalk.yellow('░░░░░░░░░░░░░░░░░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░░███░░░░░░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░░░░██░░░░░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░░░░░██░░░░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░░░░████░░░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░░░██░░██░░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░░██░░░░██░░░░░░░░░')}
+${Chalk.yellow('░░░░░░░██░░░░░░██░░░░░░░░')}
+${Chalk.yellow('░░░░░░██░░░░░░░░███░'+LAMBDA_PKG.version)}
+${Chalk.yellow('░░░░░░░░░░░░░░░░░░░░░░░░░')}
+${Chalk.blue('build')}:       Build the application for production. (available on the dist folder)
+${Chalk.blue('component')}:   Scaffolds a component. (Creates JS / Less / Spec file)
+${Chalk.blue('exit | quit')}: Bye bye !
+${Chalk.blue('help')}:        Displays this help.
+${Chalk.blue('serve')}:       Serves the application locally.
+${Chalk.blue('test')}:        Runs the test suite on all spec.js files.`;
+  return help;
+});
 
 Vorpal
   .command('component', 'Scaffolds a component (Creates JS / Less / Spec file)')
@@ -110,6 +134,7 @@ Vorpal
 
 Vorpal
   .command('init', 'Project init')
+  .hidden()
   .action(function(args, callback){
     Run('npm init');
     Run('npm i --save react react-dom redux react-redux');
