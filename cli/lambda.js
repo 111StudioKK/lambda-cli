@@ -137,4 +137,20 @@ Vorpal
     Run(cmd, cb);
   });
 
+Vorpal
+  .command('build', 'Builds the application for ptoduction')
+  .action(function(args, cb) {
+    let srcDirectory = Path.resolve(conf.lambda.srcDir);
+    let entryPoint = Path.resolve(conf.lambda.srcDir + '/' + conf.lambda.srcEntry);
+    let cmd = LAMBDA_HOME + 'node_modules/.bin/webpack';
+    let cmdArgs = [
+      '-p',
+      '--config ' + LAMBDA_HOME + 'webpack.prod.js',
+      '--srcDirectory ' + srcDirectory,
+      '--entryPoint ' + entryPoint
+    ];
+    cmd += ' ' + cmdArgs.join(' ');
+    Run(cmd, cb);
+  });
+
 loadConf();

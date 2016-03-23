@@ -166,7 +166,7 @@ The actions should be referenced in the ```./redux/avtions.js``` file.
 2. ~~Scaffold Components.~~
 3. ~~Serve the application for development.~~
 4. ~~Bootstrap the inital redux setup.~~
-5. Build the application for production.
+5. ~~Build the application for production.~~
 6. Run the test suite.
 7. Improve the cli interface (better help / more granular execution of commands with args).
 8. Build the doc generator.
@@ -181,6 +181,6 @@ The actions should be referenced in the ```./redux/avtions.js``` file.
 ░░░░░░░░░██░░██░░░░░░░░░░
 ░░░░░░░░██░░░░██░░░░░░░░░
 ░░░░░░░██░░░░░░██░░░░░░░░
-░░░░░░██░░░░░░░░███░0.4.0
+░░░░░░██░░░░░░░░███░0.5.0
 ░░░░░░░░░░░░░░░░░░░░░░░░░
 ```
