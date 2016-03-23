@@ -1,6 +1,6 @@
-# λ Lambda
+# λ Lambda [![npm version](https://badge.fury.io/js/lambda-cli.svg)](https://badge.fury.io/js/lambda-cli)
 A React Web boilerplate / scaffolding tool used at 111Studio
-[![npm version](https://badge.fury.io/js/lambda-cli.svg)](https://badge.fury.io/js/lambda-cli)
+
 ## Install
 
 This will include the lambda command in your PATH.
