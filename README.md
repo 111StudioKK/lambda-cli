@@ -6,7 +6,7 @@ A React Web boilerplate / scaffolding tool used at 111Studio
 This will include the lambda command in your PATH.
 
 ```bash
-npm i -g lambda
+npm i -g lambda-cli
 ```
 
 ##Available commands
