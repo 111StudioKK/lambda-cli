@@ -156,7 +156,7 @@ export const reducers = {
 The reducers should be referenced in the ```./redux/store.js``` file.
 ```
 ```
-The actions should be referenced in the ```./redux/avtions.js``` file.
+The actions should be referenced in the ```./redux/actions.js``` file.
 ```
 ```
 
