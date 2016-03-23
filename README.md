@@ -6,7 +6,7 @@ A React Web boilerplate / scaffolding tool used at 111Studio
 This will include the lambda command in your PATH.
 
 ```bash
-npm i -g lambda
+npm i -g lambda-cli
 ```
 
 ##Available commands
@@ -127,14 +127,45 @@ Styling components should follow these directives :
 
 ### Redux guidelines
 
->TODO
+All redux actions and reducers are in the .src/js/redux folder.
+One file per redux entity should be created.
+The file should include both reducers end action, and export them as ```reducers``` and ```actions```.
+
+```
+#Redux Config file example
+const INIT_CONFIG = 'INIT_CONFIG';
+
+export const actions = {
+  initConfig: (config) => {
+    return { type: INIT_CONFIG, config };
+  }
+}
+
+export const reducers = {
+  config: (state = {}, action) => {
+    switch (action.type) {
+    case INIT_CONFIG:
+      return action.config;
+    default:
+      return state;
+    }
+  }
+}
+```
+
+The reducers should be referenced in the ```./redux/store.js``` file.
+```
+```
+The actions should be referenced in the ```./redux/avtions.js``` file.
+```
+```
 
 ##TODO
 
 1. ~~Scaffold initial project.~~
 2. ~~Scaffold Components.~~
 3. ~~Serve the application for development.~~
-4. Bootstrap the inital redux setup. 
+4. ~~Bootstrap the inital redux setup.~~
 5. Build the application for production.
 6. Run the test suite.
 7. Improve the cli interface (better help / more granular execution of commands with args).
@@ -150,6 +181,6 @@ Styling components should follow these directives :
 ░░░░░░░░░██░░██░░░░░░░░░░
 ░░░░░░░░██░░░░██░░░░░░░░░
 ░░░░░░░██░░░░░░██░░░░░░░░
-░░░░░░██░░░░░░░░███░0.3.3
+░░░░░░██░░░░░░░░███░0.4.0
 ░░░░░░░░░░░░░░░░░░░░░░░░░
 ```
