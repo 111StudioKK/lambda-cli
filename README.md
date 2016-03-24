@@ -34,7 +34,7 @@ Runs a webpack dev server including the following features:
 4. Less compilation.
 5. Image file imports.
 6. Font imports.
-7. TODO : Crash on Flow type errors.
+7. Crash on Flow type errors.
 8. ~~TODO : Auto import npm packages if not found in the project.~~ Too dirty !
 9. ~~TODO : Global file import resolves.~~ Too dirty !
 
@@ -159,7 +159,7 @@ The reducers should be referenced in the ```./redux/store.js``` file.
 The actions should be referenced in the ```./redux/actions.js``` file.
 
 ### Type checking with flowtype
-Code should be statically type using [flow type](http://flowtype.org/docs/quick-reference.html)
+Code should be statically typed using [flow type](http://flowtype.org/docs/quick-reference.html)
 
 Exemple:
 
