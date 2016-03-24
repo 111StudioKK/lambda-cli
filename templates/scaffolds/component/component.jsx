@@ -4,12 +4,20 @@ import './{{name}}.less';
 {{imports}}
 // End scaffold imports
 
+type Props = {
+
+}
 
 class {{name}} extends React.Component {
 
-  constructor(props) {
+  description = '{{description}}'
+
+  props: Props
+
+  constructor(props: Props) {
     super(props);
   }
+
   /* Component Custom Methods */
   /* End Component Custom Methods */
 
@@ -30,12 +38,6 @@ class {{name}} extends React.Component {
     );
   }
   /* End React Component LifeCycle Methods */
-}
-
-{{name}}.description = '{{description}}';
-
-{{name}}.propTypes = {
-
 }
 
 export default {{name}};

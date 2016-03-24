@@ -35,8 +35,9 @@ Runs a webpack dev server including the following features:
 5. Image file imports.
 6. Font imports.
 7. TODO : Crash on Flow type errors.
-8. TODO : Auto import npm packages if not found in the project.
-9. TODO : Global file import resolves.
+8. ~~TODO : Auto import npm packages if not found in the project.~~ Too dirty !
+9. ~~TODO : Global file import resolves.~~ Too dirty !
+
 
 ```bash
 lambda serve
@@ -46,7 +47,7 @@ lambda serve
 
 ### Project directory tree
 
-```
+```bash
 src
 ├── fonts
 ├── images
@@ -126,13 +127,12 @@ Styling components should follow these directives :
 ```
 
 ### Redux guidelines
-
 All redux actions and reducers are in the .src/js/redux folder.
 One file per redux entity should be created.
 The file should include both reducers end action, and export them as ```reducers``` and ```actions```.
 
-```
-#Redux Config file example
+```javascript
+//Redux Config file example
 const INIT_CONFIG = 'INIT_CONFIG';
 
 export const actions = {
@@ -154,12 +154,57 @@ export const reducers = {
 ```
 
 The reducers should be referenced in the ```./redux/store.js``` file.
-```
-```
-The actions should be referenced in the ```./redux/actions.js``` file.
-```
-```
 
+
+The actions should be referenced in the ```./redux/actions.js``` file.
+
+### Type checking with flowtype
+Code should be statically type using [flow type](http://flowtype.org/docs/quick-reference.html)
+
+Exemple:
+
+```javascript
+import React from 'react';
+
+type Props = {
+  meaningOfLife: number
+}
+
+type AppState = {
+  question: string
+}
+
+class App extends React.Component {
+
+  description = 'Main App module for Deep Thought v0.42.0'
+
+  props: Props
+
+  state: AppState
+
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      question: 'What is the meaning of Life ?'
+    }
+  }
+
+  answer(question: string): number {
+    return this.props.meaningOfLife;
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <h1>{this.state.question}</h1>
+        <p><b>Deep Thought ></b> {this.answer(this.state.question)}</p>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
 ##TODO
 
 1. ~~Scaffold initial project.~~
