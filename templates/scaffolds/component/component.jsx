@@ -10,7 +10,7 @@ type Props = {
 
 class {{name}} extends React.Component {
 
-  description = '{{description}}'
+  description: '{{description}}'
 
   props: Props
 

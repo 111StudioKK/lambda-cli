@@ -132,7 +132,6 @@ One file per redux entity should be created.
 The file should include both reducers end action, and export them as ```reducers``` and ```actions```.
 
 ```javascript
-//Redux Config file example
 const INIT_CONFIG = 'INIT_CONFIG';
 
 export const actions = {
@@ -176,7 +175,7 @@ type AppState = {
 
 class App extends React.Component {
 
-  description = 'Main App module for Deep Thought v0.42.0'
+  description: 'Main App module for Deep Thought v0.42.0'
 
   props: Props
 
