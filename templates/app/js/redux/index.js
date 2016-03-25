@@ -1,13 +1,17 @@
-import {createStore, combineReducers} from 'redux';
-import {reducers as config} from './config.js';
+import {bindActionCreators, createStore, combineReducers} from 'redux';
+import config from './config.js';
 
-let reducers = combineReducers(
+const reducers = combineReducers(
   Object.assign(
-    config
+    config.reducers
   )
 );
 
-const store = (__DEV__) ?
+const combinedActions = Object.assign(
+  config.actions
+);
+
+export const store = (__DEV__) ?
   createStore(reducers, {},
     window.devToolsExtension ? window.devToolsExtension()
     :
@@ -17,4 +21,5 @@ const store = (__DEV__) ?
   :
   createStore(reducers);
 
-export default store;
+
+export const actions = bindActionCreators(combinedActions, store.dispatch);

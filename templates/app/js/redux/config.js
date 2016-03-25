@@ -1,12 +1,12 @@
 const INIT_CONFIG = 'INIT_CONFIG';
 
-export const actions = {
+const actions = {
   initConfig: (config) => {
     return { type: INIT_CONFIG, config };
   }
 };
 
-export const reducers = {
+const reducers = {
   config: (state = {}, action) => {
     switch (action.type) {
     case INIT_CONFIG:
@@ -16,3 +16,8 @@ export const reducers = {
     }
   }
 };
+
+export default {
+  actions: actions,
+  reducers: reducers
+}
