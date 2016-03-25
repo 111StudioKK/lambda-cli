@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import App from './app/App/App.jsx';
 import '../styles/config.less';
 import {store} from './redux/';
-import {initConfig} from './redux/';
+import {actions} from './redux/';
 
 actions.initConfig({
   bootstrapped: true
