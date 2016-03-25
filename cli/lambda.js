@@ -72,7 +72,7 @@ ${Chalk.blue('test')}:        Runs the test suite on all spec.js files.`;
 Vorpal
   .command('component', 'Scaffolds a component (Creates JS / Less / Spec file)')
   .cancel(function() {
-    this.log('\nScaffold cancelled, no files created')
+    this.log('\nScaffold cancelled, no files created');
   })
   .action( function(args, cb) {
     let jsDir = conf.lambda.srcDir + '/js/';
@@ -145,6 +145,15 @@ Vorpal
   .hidden()
   .action(function(args, callback){
     Run('npm init');
+    //Let's check if npm init went throught by checking if package.json exists otherwise exit
+    try{
+      Config.load();
+    }
+    catch(err) {
+      this.log('\nProject init cancelled');
+      process.exit(1);
+    }
+
     Run('npm i --save react react-dom redux react-redux');
     Run('npm i --save-dev eslint eslint-plugin-react');
     conf = Config.defaultConf();
