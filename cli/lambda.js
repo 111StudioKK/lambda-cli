@@ -71,6 +71,9 @@ ${Chalk.blue('test')}:        Runs the test suite on all spec.js files.`;
 
 Vorpal
   .command('component', 'Scaffolds a component (Creates JS / Less / Spec file)')
+  .cancel(function() {
+    this.log('\nScaffold cancelled, no files created')
+  })
   .action( function(args, cb) {
     let jsDir = conf.lambda.srcDir + '/js/';
     let components = ls(jsDir + '**/*.jsx', {type: 'file'}).map((component) => {
