@@ -91,27 +91,31 @@ Vorpal
       {
         type: 'input',
         name: 'name',
-        message: 'Component name: '
+        message: 'Component name: ',
+        validate: (input) => !!input
       },
       {
         type: 'input',
         name: 'description',
         message: 'Component description: ',
-        filter: (input) => (input.endsWith('.')) ? input : input + '.'
+        filter: (input) => (input.endsWith('.')) ? input : input + '.',
+        validate: (input) => !!input
       },
       {
         type: 'list',
         name: 'directory',
         message: 'Base Directory: ',
         choices: dirs,
-        when: () => dirs.length > 1
+        when: () => dirs.length > 1,
+        validate: (input) => !!input
       },
       {
         type: 'input',
         name: 'directory',
         message: 'New Base Directory: ',
         when: (answers) => answers.directory === 'newDir' || dirs.length === 1,
-        filter: (input) => jsDir + input
+        filter: (input) => jsDir + input,
+        validate: (input) => !!input
       },
       {
         type: 'checkbox',
@@ -123,6 +127,7 @@ Vorpal
     ])
     .then((answers) => {
       try{
+        console.log('test');
         Scaffold.component(answers, cb);
       }
       catch(err) {
