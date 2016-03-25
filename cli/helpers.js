@@ -15,20 +15,6 @@ const externalArgs = [
 
 module.exports = {
 
-  componentsBaseDirectory: componentsBaseDirectory,
-  getComponentDirectories: () => {
-    let find = fsPath.findSync(componentsBaseDirectory);
-    let directories = find.dirs.filter((directory) => (directory.split('/').length === 8));
-    directories.push({name: '[+] Add new directory', value: 'newDir'});
-    return directories;
-  },
-
-  getExistingComponents: () => {
-    let find = fsPath.findSync(componentsBaseDirectory);
-    let files = find.files.filter((file) => (file.includes('.js') && !file.includes('.spec.js')));
-    return files;
-  },
-
   isExternalProcess: () => {
     let processArg = ProcessArgs[2] || null;
     return (externalArgs.indexOf(processArg) !== -1) ? processArg : false;
