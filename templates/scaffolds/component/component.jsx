@@ -1,8 +1,7 @@
 import React from 'react';
-// Scaffold imports
+
 import './{{name}}.less';
-{{imports}}
-// End scaffold imports
+
 
 type Props = {
 

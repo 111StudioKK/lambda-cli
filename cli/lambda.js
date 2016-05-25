@@ -119,18 +119,10 @@ Vorpal
         when: (answers) => answers.directory === 'newDir' || dirs.length === 1,
         filter: (input) => jsDir + input,
         validate: (input) => !!input
-      },
-      {
-        type: 'checkbox',
-        name: 'components',
-        message: 'Import Existing components ? ',
-        choices: components,
-        when: () => components.length > 0
       }
     ])
     .then((answers) => {
       try{
-        console.log('test');
         Scaffold.component(answers, cb);
       }
       catch(err) {

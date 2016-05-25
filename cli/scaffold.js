@@ -18,18 +18,6 @@ module.exports = {
       class: Case.kebab(args.name),
       description: args.description
     };
-    // let render =
-    // File.write(appPath, render);
-    function buildImports (components) {
-      if(!components) return '';
-      let imports = '';
-      components.forEach((component) => {
-        let importName = Path.basename(component, '.js');
-        imports += `import ${importName} from '/${component}'\n`;
-      });
-      return imports;
-    }
-
 
     File.write(target + 'jsx', Mustache.render(jsxFile, componentData));
     File.write(target + 'less', Mustache.render(lessFile, componentData));
