@@ -1,7 +1,5 @@
 import React from 'react';
-
 import './{{name}}.less';
-
 
 type Props = {
 
