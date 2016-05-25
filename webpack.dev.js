@@ -29,9 +29,12 @@ module.exports = {
         include: path.join(Argv.srcDirectory)
       },
       {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+      {
         test: /\.less$/,
-        loader: 'style!css!less',
-        include: path.join(Argv.srcDirectory)
+        loader: 'style!css!less'
       },
       {
         test: /\.jsx?/,
