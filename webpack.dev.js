@@ -11,6 +11,7 @@ module.exports = {
   ],
 
   output: {
+    publicPath: '/',
     path: path.resolve(Argv.entryPoint, 'build'),
     filename: 'bundle.js'
   },

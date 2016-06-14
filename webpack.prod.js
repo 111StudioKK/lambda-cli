@@ -14,6 +14,7 @@ module.exports = {
   },
 
   output: {
+    publicPath: '/',
     path: path.resolve(Argv.srcDirectory + '/../', 'dist'),
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js'
