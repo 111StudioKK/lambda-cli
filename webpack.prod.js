@@ -63,6 +63,7 @@ module.exports = {
     new Clean(),
     new webpack.DefinePlugin({
       __DEV__ : false,
+      __VERSION__ : JSON.stringify(require(Argv.srcDirectory + '/../package.json').version),
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new ExtractTextPlugin('[name].[chunkhash].css'),

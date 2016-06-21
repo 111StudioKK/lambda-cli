@@ -64,7 +64,8 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      __DEV__ : (process.env.NODE_ENV !== 'production')
+      __DEV__ : (process.env.NODE_ENV !== 'production'),
+      __VERSION__ : JSON.stringify(require(Argv.srcDirectory + '/../package.json').version)
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
