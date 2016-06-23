@@ -1,6 +1,6 @@
 {
   "name": "lambda-cli",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A React Web boilerplate / scaffolding tool used at 111Studio",
   "main": "index.js",
   "bin": {
@@ -45,6 +45,7 @@
     "fs-path": "0.0.22",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.10.0",
+    "image-webpack-loader": "1.8.0",
     "jsdom": "8.1.0",
     "less": "2.6.1",
     "less-loader": "2.2.2",
