@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -6,7 +7,13 @@ var Clean = require('webpack-cleanup-plugin');
 var parseArgs = require('minimist');
 var Argv = parseArgs(process.argv);
 var Dependencies = require(Argv.srcDirectory + '/../package.json').dependencies;
-
+var modulesPaths = [Argv.srcDirectory];
+try {
+  fs.lstatSync(Argv.srcDirectory + '/common');
+  modulesPaths.push(fs.realpathSync(Argv.srcDirectory + '/common'));
+} catch (error) {
+  console.info('No code symlink ... skipping');
+}
 module.exports = {
   entry: {
     'app': Argv.entryPoint,
@@ -19,9 +26,9 @@ module.exports = {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js'
   },
-
-  devtool: 'source-map',
-
+  resolve: {
+    fallback: path.join(process.cwd(), 'node_modules')
+  },
   resolveLoader: {
     root: path.resolve(__dirname, 'node_modules')
   },
@@ -31,12 +38,12 @@ module.exports = {
       {
         test: /\.woff$/,
         loader: 'url?limit=100000',
-        include: path.join(Argv.srcDirectory)
+        include: modulesPaths
       },
       {
         test: /\.less$/,
         loader: 'style!css!less',
-        include: path.join(Argv.srcDirectory)
+        include: modulesPaths
       },
       {
         test: /\.jsx?/,
@@ -48,13 +55,12 @@ module.exports = {
             require.resolve('babel-preset-stage-0')
           ]
         },
-        include: path.join(Argv.srcDirectory),
-        exclude: /node_modules/
+        include: modulesPaths
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file',
-        include: path.join(Argv.srcDirectory)
+        include: modulesPaths
       }
     ]
   },

@@ -1,8 +1,17 @@
+var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var parseArgs = require('minimist');
 var Argv = parseArgs(process.argv);
+
+var modulesPaths = [Argv.srcDirectory];
+try {
+  fs.lstatSync(Argv.srcDirectory + '/common');
+  modulesPaths.push(fs.realpathSync(Argv.srcDirectory + '/common'));
+} catch (error) {
+  console.info('No code symlink ... skipping');
+}
 module.exports = {
   entry: [
     __dirname + '/node_modules/webpack-dev-server/client?http://localhost:8080',
@@ -17,9 +26,11 @@ module.exports = {
   },
 
   devtool: 'source-map',
-
+  resolve: {
+    fallback: path.join(process.cwd(), 'node_modules')
+  },
   resolveLoader: {
-    root: path.resolve(__dirname, 'node_modules')
+    root: path.join(__dirname, 'node_modules')
   },
   module: {
 
@@ -27,15 +38,17 @@ module.exports = {
       {
         test: /\.woff$/,
         loader: 'url?limit=100000',
-        include: path.join(Argv.srcDirectory)
+        include: modulesPaths
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: 'style!css',
+        include: modulesPaths
       },
       {
         test: /\.less$/,
-        loader: 'style!css!less'
+        loader: 'style!css!less',
+        include: modulesPaths
       },
       {
         test: /\.jsx?/,
@@ -51,13 +64,12 @@ module.exports = {
             require.resolve('babel-plugin-typecheck')
           ]
         },
-        include: path.join(Argv.srcDirectory),
-        exclude: /node_modules/
+        include: modulesPaths
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file',
-        include: path.join(Argv.srcDirectory)
+        include: modulesPaths
       }
     ]
   },
